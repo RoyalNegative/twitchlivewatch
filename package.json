@@ -1,0 +1,16 @@
+{
+  "name": "twitchlivewatch",
+  "version": "1.0.0",
+  "description": "Reklamsız, dikkat dağıtmayan Twitch yayın izleme arayüzü",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "twitch-m3u8": "^1.1.5"
+  },
+  "keywords": ["twitch", "stream", "hls", "ad-free"],
+  "author": "",
+  "license": "MIT"
+}
