@@ -261,7 +261,7 @@
     function playStream(m3u8Url) {
       stopStream();
 
-      const proxyUrl = `/proxy?url=${encodeURIComponent(m3u8Url)}`;
+      const proxyUrl = `/api/proxy?url=${encodeURIComponent(m3u8Url)}`;
       placeholder.classList.remove('hidden');
       placeholder.innerHTML = '<p>Yükleniyor...</p>';
       setStatus('Akış bağlanıyor...', 'loading');
@@ -350,7 +350,7 @@
       } else {
         setStatus('Stream URL alınıyor...', 'loading');
         try {
-          const res = await fetch(`/resolve?url=${encodeURIComponent(input)}`);
+          const res = await fetch(`/api/resolve?url=${encodeURIComponent(input)}`);
           const data = await res.json();
           if (!res.ok) {
             setStatus(data.error || 'Hata oluştu', 'error');

@@ -66,7 +66,7 @@ function rewritePlaylist(baseUrl, content) {
     
     // Göreli URL'i mutlak URL'e çevir
     const segmentUrl = line.startsWith('http') ? line : new URL(line, base).href;
-    result.push(`/proxy?url=${encodeURIComponent(segmentUrl)}`);
+    result.push(`/api/proxy?url=${encodeURIComponent(segmentUrl)}`);
   }
   
   return result.join('\n');
@@ -103,7 +103,7 @@ const server = http.createServer(async (req, res) => {
   }
 
   // Twitch kanal linkinden m3u8 URL'sini otomatik çıkar
-  if (parsedUrl.pathname === '/resolve' && parsedUrl.query.url) {
+  if ((parsedUrl.pathname === '/resolve' || parsedUrl.pathname === '/api/resolve') && parsedUrl.query.url) {
     const input = decodeURIComponent(parsedUrl.query.url);
     const channel = extractChannel(input);
     
@@ -136,7 +136,7 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  if (parsedUrl.pathname === '/proxy' && parsedUrl.query.url) {
+  if ((parsedUrl.pathname === '/proxy' || parsedUrl.pathname === '/api/proxy') && parsedUrl.query.url) {
     const targetUrl = decodeURIComponent(parsedUrl.query.url);
     
     try {

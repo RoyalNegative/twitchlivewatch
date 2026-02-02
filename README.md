@@ -21,6 +21,13 @@ Tarayıcıda `http://localhost:3000` adresine gidin.
 
 > **Port 3000 meşgulse:** `PORT=3001 npm start` ile farklı port kullanın. Windows'ta: `set PORT=3001 && npm start`
 
+## Vercel Deployment
+
+Proje Vercel'de çalışacak şekilde yapılandırıldı. GitHub'a push edip Vercel'e bağladıktan sonra otomatik deploy edilir.
+
+- `/api/resolve` — Twitch kanalından m3u8 URL çıkarır
+- `/api/proxy` — HLS stream proxy (CORS bypass)
+
 ## Kullanım
 
 Sadece Twitch yayın linkini yapıştırın. Örnek formatlar:
